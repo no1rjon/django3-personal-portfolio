@@ -2,16 +2,47 @@
 {% load static %}
 {% block content %}
     <title>Resume</title>
-    <div class="text-center">
-        <br>
-        <img class="img-fluid rounded" src="{% static 'portfolio/me_photo.jpg' %}" width="300">
-
-
-{#        {% for project in projects %}#}
-{#            <h1>{{ project.title }}</h1>#}
-{#            {{ project.description }}#}
-{#            <img src="{{ project.image.url }}" width="100" height="100">#}
-{#        {% endfor %}#}
+    <br>
+    <div class="container border-bottom border-dark">
+      <div class="row">
+        <div class="col-3">
+          <img class="img-fluid rounded" src="{% static 'portfolio/me_photo.jpg' %}" width="300">
+        </div>
+        <div class="col">
+            <p class="fw-bold fs-5">{{ info.text }}</p>
+        </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <br>
+        </div>
+        <div class="col">
+            <br>
+        </div>
+    <div class="row">
+        <div class="col-10">
+            <h2 class="fs-2 fw-bolder">Portfolio</h2>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <br>
+    <div class="container ">
+    <div class="row">
+    {% for project in projects %}
+            <div class="card mb-2 me-2" style="width: 16rem;">
+                <a href="{{ project.url }}" target="_blank">
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title text-primary text-uppercase">{{ project.title }}</h4>
+                    <p class="card-text">{{ project.description }}</p>
+                </div>
+            </div>
+    {% endfor %}
+    </div>
+    </div>
+    <br>
 {% endblock %}
 

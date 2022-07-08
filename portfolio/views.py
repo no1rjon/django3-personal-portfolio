@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from.models import Project
+from.models import Project, MyInfo
 
 def home(request):
     projects = Project.objects.all()
-    return render(request, 'portfolio/home.html', {'projects': projects})
+    my_info = MyInfo.objects.get()
+    return render(request, 'portfolio/home.html', {'projects': projects, 'info': my_info})

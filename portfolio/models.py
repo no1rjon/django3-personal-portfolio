@@ -8,3 +8,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+class MyInfo(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return str('My Info')
