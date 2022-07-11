@@ -9,7 +9,7 @@
         {% for blog in blogs %}
             <a href="{% url 'blog:detail' blog.id %}" class="link-dark text-uppercase fs-2">{{ blog.title }}</a>
             <h4 class="fs-4"> Published: {{ blog.date|date:'l d M Y' }}</h4>
-            <p>{{ blog.description|truncatechars:300 }}</p>
+            <p>{{ blog.description|truncatechars:125 |safe }}</p>
         {% endfor %}
     </div>
 {% endblock %}
